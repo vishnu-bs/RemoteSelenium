@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Collections;
 import java.util.List;
 
 public class RunTest {
@@ -34,6 +35,7 @@ public class RunTest {
         WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444"), dc);
 
         driver.get("https://docs.docker.com/desktop/install/windows-install/");
+        driver.manage().window().fullscreen();
         String title = driver.getTitle();
         System.out.println(title);
         List<WebElement> elements = driver.findElements(By.xpath("//a"));
@@ -48,11 +50,11 @@ public class RunTest {
         WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444"), dc);
 
         driver.get("https://docs.docker.com/desktop/install/windows-install/");
+        driver.manage().window().fullscreen();
         String title = driver.getTitle();
         System.out.println(title);
         List<WebElement> elements = driver.findElements(By.xpath("//a"));
         elements.stream().filter(e->!e.getText().isBlank()).forEach(e-> System.out.println(e.getText()));
-        // Uninterruptibles.sleepUninterruptibly(5, TimeUnit.SECONDS);
         driver.quit();
     }
     @Test
@@ -63,11 +65,11 @@ public class RunTest {
         WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444"), dc);
 
         driver.get("https://docs.docker.com/desktop/install/windows-install/");
+        driver.manage().window().fullscreen();
         String title = driver.getTitle();
         System.out.println(title);
         List<WebElement> elements = driver.findElements(By.xpath("//a"));
         elements.stream().filter(e->!e.getText().isBlank()).forEach(e-> System.out.println(e.getText()));
-        // Uninterruptibles.sleepUninterruptibly(5, TimeUnit.SECONDS);
         driver.quit();
     }
 }
